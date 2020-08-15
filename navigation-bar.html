@@ -1,0 +1,177 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eNepal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            position: relative;
+        }
+        body {
+            background: #f2f2f2;
+        }
+        nav {
+            background-color: #171c24;
+            height: 70px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+
+            /* position: relative; */
+        }
+        nav .site-logo {
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.6rem;
+            /* margin: 0 .1em; */
+            position: fixed;
+            left: 20px; 
+            letter-spacing: -1px;
+        }
+        nav .ham-menu {
+            /* width: 20%; */
+            cursor: pointer;
+            display: none;
+        }
+        nav .nav-items {
+            display: flex;
+            /* float: right; */
+            align-items: center;
+            flex-wrap: wrap;
+            z-index: 100;
+            
+            list-style: none;
+            position: absolute;
+            right: 50px;
+            transition: left .3s ease;
+            left: -100%;
+            
+        }
+        nav .nav-items li a {
+            /* width: 100%; */
+            color: #fff;
+            text-decoration: none;
+            padding: .2em;
+            margin-right: 1em;
+        }
+        nav .nav-items li a:hover {
+            color: tomato;
+        }
+
+        nav .nav-items.active {
+            display: block;
+            background: red;
+            position: fixed;
+            top: 70px;
+            margin-top: 2px;
+            text-align: center;
+            line-height: 60px;
+            width: 100%;
+            left: 0px;
+            
+        }
+        nav .ham-menu.hide {
+            display: none;
+        }
+        nav .nav-items.active a {
+            margin-left: 4px;
+            padding: 10px;
+            font-weight: 500;
+            font-size: 25px;
+        }
+        nav .cancel-btn {
+            display: none;
+        }
+        nav .cancel-btn.show {
+            display: block;
+            cursor: pointer;
+            position: fixed;
+            right: 20px;
+            top: 80px;
+        }
+        .search-form {
+            flex: 2;
+            position: fixed;
+            left: 500px;
+            bottom: 92%;
+        }
+        .search-form .search-icon {
+            position: fixed;
+            top: 1.6%;
+            width: 50px;
+            cursor: pointer;
+        }
+
+        /* Media Query start */
+        @media (max-width: 568px) {
+            nav .site-logo {
+                flex: 1;
+                text-align: center;
+                left: 250px;
+
+            }
+            nav .ham-menu {
+                display: block;
+            }
+            nav .nav-items {
+                display: none;
+            }
+            nav .search-form {
+                display: none;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="ham-menu">
+            <img src="https://img.icons8.com/fluent/48/000000/menu--v2.png"/>
+        </div>
+        <div class="site-logo">eNepal</div>
+        <div class="nav-items">            
+                
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </div>
+        <div class="cancel-btn">
+            <img src="https://img.icons8.com/ultraviolet/40/000000/cancel.png"/>
+        </div>
+        <div class="search-form">
+            <form action=".">
+                <input type="text" class="search-text" placeholder="Search">
+                <a href="#" type="submit"><img class="search-icon" src="https://img.icons8.com/cotton/64/000000/search--v2.png"/></a>
+            </form>
+        </div>
+
+    </nav>
+
+    <script>
+        const hamMenu = document.querySelector('.ham-menu');
+        const cancelBtn = document.querySelector('.cancel-btn');
+        const items = document.querySelector('.nav-items');
+
+        hamMenu.onclick = () => {
+            items.classList.add('active');
+            hamMenu.classList.add('hide');
+            cancelBtn.classList.add('show');
+        }
+        cancelBtn.onclick = () => {
+            items.classList.remove('active');
+            hamMenu.classList.remove('hide');
+            cancelBtn.classList.remove('show');
+        }
+
+    </script>
+</body>
+</html>

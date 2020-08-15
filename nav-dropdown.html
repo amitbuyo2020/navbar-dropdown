@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <link rel="stylesheet" href="nav-dropdown.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <div class="menu-icon">
+            <img src="https://img.icons8.com/fluent/48/000000/menu--v1.png"/>
+        </div>
+        <div class="site-logo">eNepal</div>
+        <div class="cancel-icon"><img src="https://img.icons8.com/ios-filled/50/000000/cancel.png"/></div>
+        <ul class="nav-items">
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#" class="services">Services</a>
+                <ul class="sub-menu1 ">
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Animation</a></li>
+                    <li><a href="#">Video Editing</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Portfolio</a></li>
+            <li>
+                <a href="#" class="features">Features</a>
+                <ul class="sub-menu ">
+                    <li><a href="#">Feature 1</a></li>
+                    <li><a href="#">Feature 2</a></li>
+                    <li>
+                        <a href="#">Feature 3</a>
+                        <!-- <ul class="sub-features">
+                            <li><a href="#">Feature 3.1</a></li>
+                            <li><a href="#">Feature 3.2</a></li>
+                            <li><a href="#">Feature 3.3</a></li>
+                        </ul> -->
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        const menuBtn = document.querySelector('.menu-icon');
+        const cancelBtn = document.querySelector('.cancel-icon');
+        const items = document.querySelector('.nav-items');
+        const subMenu = document.querySelector('.sub-menu1');    
+        const features = document.querySelector('.features');
+
+        menuBtn.onclick = () => {
+            items.classList.add('active');
+            cancelBtn.style.display = 'block';
+            menuBtn.style.display = 'none';
+            subMenu.classList.add('disabled');
+        }
+        cancelBtn.onclick = _ => {
+            items.classList.remove('active');
+            cancelBtn.style.display = 'none';
+            menuBtn.style.display = 'block';
+        }
+        
+    </script>
+</body>
+</html>
